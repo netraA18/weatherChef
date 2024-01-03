@@ -8,5 +8,5 @@ const CityWeather = () => {
   )
 }
 
-export default CityWeather
+export default CityWeather;
 

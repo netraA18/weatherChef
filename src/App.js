@@ -5,14 +5,16 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import MovieDetails from './components/FindRecipe';
 import MovieList from './components/CityWeather';
-import SearchBar from './components/WeatherRecipe';
-import { Typography } from '@mui/material';
+
+
+
 
 function Home() {
   
   return (
     <div className="headerStyle">
       <h1 className="ui header">Weather Chef</h1>
+      
 
     </div>
 
