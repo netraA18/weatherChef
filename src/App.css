@@ -36,3 +36,51 @@
     transform: rotate(360deg);
   }
 }
+
+/* 
+body {
+  background-color: rgb(0, 0, 35);
+  color: white;
+ 
+} */
+
+.header {
+  text-align: center;
+ 
+  
+}
+
+.ui.pointing.menu {
+  height: 60px; /* Adjust the height as needed */
+  font-size: 18px; /* Adjust the font size as needed */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movieQuest {
+  text-align: center;
+  margin-left: 250px;
+}
+
+.right.menu {
+  display: flex;
+  align-items: center;
+}
+
+/* Add any additional styles as needed */
+
+
+
+
+/* Add any additional styles as needed */
+
+
+
+/* .movieQuest {
+  text-align: center;
+  flex-grow: 1;  
+} */
+
+
+
