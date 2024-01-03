@@ -1,86 +1,78 @@
-.App {
-  text-align: center;
+body {
+  background-color: rgb(0, 0, 35);
+  color: yellow;
+  
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes colorChange {
+  0% {
+    color: turquoise;
+  }
+  50% {
+    color: pink;
+  }
+  100% {
+    color: turquoise;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
+@keyframes rotate {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
 
-/* 
-body {
-  background-color: rgb(0, 0, 35);
-  color: white;
- 
-} */
-
-.header {
+.headerStyle {
   text-align: center;
+  margin-top: 40vh;
+  transform: translateY(-40%); 
+}
+
+.ui.header {
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: turquoise;
+  font-size: 75px !important; 
+  text-shadow: rgb(60, 134, 207) 4px 0 10px;
+  animation: colorChange 4s ease-in-out infinite, rotate 4s linear;
+
  
-  
 }
 
 .ui.pointing.menu {
-  height: 60px; /* Adjust the height as needed */
-  font-size: 18px; /* Adjust the font size as needed */
+  height: 60px;
+  font-size: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #a73e6d; 
 }
 
-.movieQuest {
-  text-align: center;
-  margin-left: 250px;
+.ui.pointing.menu a {
+  color: #ffffff; 
+}
+
+.ui.pointing.menu a:hover {
+  color: rgb(249, 255, 82);
 }
 
 .right.menu {
   display: flex;
   align-items: center;
+
 }
 
-/* Add any additional styles as needed */
 
 
 
 
-/* Add any additional styles as needed */
 
 
 
-/* .movieQuest {
-  text-align: center;
-  flex-grow: 1;  
-} */
 
 
 

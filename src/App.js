@@ -3,11 +3,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import MovieDetails from './components/MovieDetails';
-import MovieList from './components/MovieList';
+import MovieDetails from './components/FindRecipe';
+import MovieList from './components/CityWeather';
+import SearchBar from './components/WeatherRecipe';
+import { Typography } from '@mui/material';
 
 function Home() {
-  return <h1 className="ui header">Movie Database</h1>;
+  
+  return (
+    <div className="headerStyle">
+      <h1 className="ui header">Weather Chef</h1>
+
+    </div>
+
+  );
 }
 
 function App() {
@@ -18,24 +27,22 @@ function App() {
           <Link to="/" className="item">
           <strong>Home</strong>
           </Link>
-          <Link to="/MovieList" className="item">
-            <strong>Movie List</strong>
+          <Link to="/CityWeather" className="item">
+            <strong>Your City's Weather</strong>
           </Link>
-          <Link to="/MovieDetails" className="item">
-          <strong>Movie Details</strong>
+          <Link to="/FindRecipe" className="item">
+          <strong>Find a Recipe</strong>
           </Link>
-          <div className="movieQuest">
-            <h1>Movie Quest</h1>
-            </div> 
-          <div className="right menu">
-          <a class="ui item">
-            Logout
-          </a>
-
-          </div>
+          <Link to="/WeatherRecipe" className="item">
+          <strong>Weather Based Recipe</strong>
+          </Link>
           
-        </div>
-        
+          <div className="right menu">
+          <a className="ui item">
+            <strong>Login</strong>
+          </a>
+          </div>
+      </div>
 
         <Routes>
           <Route path="/" element={<Home />} />
