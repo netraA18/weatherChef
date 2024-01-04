@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CityWeather = () => {
+const SavedRecipes = () => {
   return (
     <div>
       
@@ -8,5 +8,5 @@ const CityWeather = () => {
   )
 }
 
-export default CityWeather;
+export default SavedRecipes
 
