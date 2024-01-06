@@ -9,6 +9,9 @@ import SavedRecipes from './components/SavedRecipes';
 import foodImg from './foodImg.avif';
 import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
+import FindRecipe from './components/FindRecipe';
+import WeatherRecipe from './components/WeatherRecipe';
+import InputWithIcon from './FindRecipeComponents/InputWithIcon';
 
 
 
@@ -18,7 +21,7 @@ function Home() {
     <div className="headerStyle">
       
       <h1 className="ui header">Weather Chef</h1>
-      <LocalCafeIcon fontSize='large'/>
+      <LocalCafeIcon fontSize='large' />
       <AcUnitIcon fontSize='large'/>
       
 
@@ -55,8 +58,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/MovieDetails" element={<MovieDetails />} />
-          <Route path="/MovieList" element={<MovieList />} />
+          <Route path="/FindRecipe" element={<FindRecipe />} />
+          <Route path="/WeatherRecipe" element={<WeatherRecipe />} />
+          <Route path="/SavedRecipes" element={<SavedRecipes />} />
         </Routes>
 
 
