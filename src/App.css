@@ -5,40 +5,37 @@ body {
   color: yellow;
 }
 
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+}
 
-#inputFoodInput {
+.dataDisplay {
+  margin-left: 100px;
+  padding: 50px;
+}
+
+#inputFood {
   border-bottom: 3px solid rgb(255, 255, 255) !important;
   color: rgb(0, 208, 255);
   font-size: large;
   font-weight: 400;
 }
 
-
-#my-helper-text {
+#my-title-food {
   font-size: medium;
   color: rgb(255, 177, 190);
   font-weight: bold;
-  
+  font-size: small;
 }
 
 #menu-book-icon {
-  color: rgb(255, 191, 153);
-  margin-top: 15px;
-  margin-bottom: 50px;
-  font-size: 40px;
-  margin-left: 100px;
-  margin-right: 10px;
-  
+  color: rgb(255, 150, 110);
+  font-size: 45px;
+  margin-left: 45px; 
+  margin-bottom: -59px;
 }
-
-
-
-
-
-
-
-
-
 
 @keyframes colorChange {
   0% {
@@ -53,15 +50,6 @@ body {
   }
 }
 
-/* @keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} */
-
 .headerStyle {
   text-align: center;
   margin-top: 40vh;
@@ -75,8 +63,6 @@ body {
   font-size: 75px !important; 
   text-shadow: rgb(60, 134, 207) 4px 0 10px;
   animation: colorChange 4s ease-in-out infinite;
-
- 
 }
 
 .ui.pointing.menu {
