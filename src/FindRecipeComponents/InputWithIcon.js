@@ -12,12 +12,10 @@ const InputWithIcon = ({ onFoodChange }) => {
   
 
   const handleInputChange = (event) => {
-    //extract value propert 
+    //extract value property
     const { value } = event.target;
     //food value is being updated
     setFood(value);
-    
-    
   }
 
   const handleFoodChange = () => {

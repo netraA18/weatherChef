@@ -4,10 +4,11 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import InputWithIcon from '../FindRecipeComponents/InputWithIcon';
 
 const FindRecipe = () => {
-  
-  
+
   const [selectedFood, setSelectedFood] = useState(null);
   const [items, setItems] = useState([]);
+  const [count, setCount] = useState(1);
+  
   
 
   useEffect(() => {
@@ -27,15 +28,32 @@ const FindRecipe = () => {
     //when user inputs a new food, useEffect callback is triggered and fetchData is called
   }, [selectedFood]);
 
+
+  //implement useEffect???
   const splitInstructions = (instructions) => {
     
     const sentences = [instructions.split(".")];
     const newArray = sentences.flat();
-
+    
     return newArray.map((sentence, index) => (
       <p key={index}> {sentence}</p>
     ));
   };
+
+  const splitIngredients = (item) => {
+    const ingredients = [];
+
+    for (var i = 1; i <= 20; i++) {
+      ingredients[i] = item[`strIngredient${i}`];
+    }
+     
+    return ingredients.map((ingredient, index) => (
+       <p key={index}> {ingredient}</p> 
+    ));
+    
+  };
+
+  
 
 
   return (
@@ -50,9 +68,14 @@ const FindRecipe = () => {
               {index + 1} Meal Name: {item.strMeal}
             </strong>
             <ul>
+              
+              
               <li>Category: {item.strCategory}</li>
               
               <li>Instructions: {splitInstructions(item.strInstructions)} </li>
+              <li>Ingredients:  {splitIngredients(item)}</li>
+              
+            
               
             </ul>
 
