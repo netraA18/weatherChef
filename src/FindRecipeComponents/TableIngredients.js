@@ -9,21 +9,57 @@ import Paper from '@mui/material/Paper';
 
 
 
-const TableIngredients = () => {
+const TableIngredients = ( {item}) => {
+
+  const splitInstructions = (instructions) => {
+    const sentences = instructions.split(".");
+    const newArray = sentences.flat();
+
+    return newArray.map((sentence, index) => (
+      <p key={index}>{sentence}</p>
+    ));
+  };
+
+  const displayRecipeParts = (item, { partName }) => {
+    const partInfo = [];
+
+    for (var i = 1; i <= 20; i++) {
+    partInfo[i] = item[`str${partName}${i}`];
+    }
+
+    return partInfo.map((partText, index) => (
+    <p key={index}>{partText}</p>
+    ));
+};
   return (
-    // <TableContainer component = {Paper}>
-    //   <Table sx = {{minWidth: 50}} aria-label="simple table">
-    //     <TableHead>
-    //       <TableRow>
-    //         <TableCell>Ingredients</TableCell>
-    //         <TableCell align='right'>Measurements</TableCell>
-    //       </TableRow>
-    //     </TableHead>
-    //   </Table>
-    // </TableContainer>
-    <div>
-      <p>Hello</p>
-    </div>
+     
+
+    
+    <TableContainer component = {Paper}>
+      <MuiTable sx = {{minWidth: 50}} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Ingredients</TableCell>
+            <TableCell align='right'>Measurements</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow key={item.idMeal}  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+            <TableCell component="th" scope="row">
+              {displayRecipeParts(item, { partName: 'Ingredient' })}     
+            </TableCell>
+            <TableCell align='right'>
+            {displayRecipeParts(item, { partName: 'Measure' })}
+            </TableCell>
+          
+
+          </TableRow>
+         
+           
+        </TableBody>
+      </MuiTable>
+    </TableContainer>
+    
   )
 }
 
