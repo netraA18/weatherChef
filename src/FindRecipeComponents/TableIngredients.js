@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 
 
 
+
 const TableIngredients = ( {item}) => {
 
   const splitInstructions = (instructions) => {
@@ -36,11 +37,11 @@ const TableIngredients = ( {item}) => {
 
     
     <TableContainer component = {Paper}>
-      <MuiTable sx = {{minWidth: 50}} aria-label="simple table">
+      <MuiTable sx = {{minWidth: 50}} aria-label="simple table" id="tableIngredients">
         <TableHead>
           <TableRow>
-            <TableCell>Ingredients</TableCell>
-            <TableCell align='right'>Measurements</TableCell>
+            <TableCell><strong>Ingredients</strong></TableCell>
+            <TableCell align='right'><strong>Measurements</strong></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -4,6 +4,7 @@ import FormControl from '@mui/material/FormControl';
 import { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import FormHelperText from '@mui/material/FormHelperText';
 
 //onFoodChange is passed from parent component to child component to allow update the state
 const InputWithIcon = ({ onFoodChange }) => {
@@ -29,9 +30,10 @@ const InputWithIcon = ({ onFoodChange }) => {
       <FormControl>
         <InputLabel htmlFor="inputFoodTitle" id="my-title-food">Food Name</InputLabel>
         <Input id="inputFood" name="foodItem" aria-describedby='my-title-food' onChange={handleInputChange} />
+        <FormHelperText id="my-helper-text">Below are sample recipes. Search for your own!</FormHelperText>
       </FormControl>
       <Stack spacing={2} direction="row">
-        <Button variant="contained" onClick={handleFoodChange} style={{ backgroundColor: "rgb(210, 150, 110)", color: "maroon", fontWeight: "bold", marginLeft: '12px', marginTop: '18px' }}>Submit</Button>
+        <Button variant="contained" onClick={handleFoodChange} style={{ backgroundColor: "rgb(210, 150, 110)", color: "maroon", fontWeight: "bold", marginLeft: '12px', marginBottom: '5px' }}>Submit</Button>
       </Stack>
     </div>
   );

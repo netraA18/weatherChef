@@ -97,6 +97,34 @@ body {
 }
 
 
+#tableIngredients {
+  width: 100%; 
+  margin-top: 20px; 
+  border-collapse: collapse; 
+}
+
+#tableIngredients th, #tableIngredients td {
+  padding: 12px; 
+  border: 1px solid #ddd;
+  text-align: left; 
+}
+
+#tableIngredients th {
+  background-color: #8fd1ca; /* Set background color for table header */
+}
+
+#my-helper-text {
+  color: lightseagreen;
+}
+
+.iconsFindRecipe {
+  color:rgb(95, 255, 106);
+  
+}
+
+
+
+
 
 
 

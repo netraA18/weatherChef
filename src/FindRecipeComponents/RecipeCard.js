@@ -11,6 +11,7 @@ import { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import TableIngredients from './TableIngredients';
 import Button from '@mui/material/Button';
+import {Link} from 'react-router-dom';
 
 
 const RecipeCard = ({ item }) => {
@@ -68,16 +69,20 @@ const RecipeCard = ({ item }) => {
             <Card className="card" sx={{ maxWidth: 300 }}>
               <CardActionArea>
                 <CardMedia component="img" height="200" image={item.strMealThumb} />
-                <CardContent style={{ height: '150px' }}>
+                <CardContent style={{ height: '135px' }}>
                   <Typography gutterBottom variant="h5" component="div">
                     {item.strMeal}
                   </Typography>
-                  <Typography variant="body2" color="text.primary">
+                  <Typography variant="body1" color="text.primary">
                     <strong>Category:</strong> {item.strCategory}
                     <br />
+                   
                     <strong>Area:</strong> {item.strArea}
                     <br />
-                    <strong>Video Link:</strong> {item.strYoutube}
+                  
+                    <strong> Video Link: </strong>
+                    <Link style={{color: 'purple'}} to={item.strYoutube}>{item.strMeal} Video </Link>
+                    {/* <strong>Video Link:</strong> {item.strYoutube} */}
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -85,8 +90,12 @@ const RecipeCard = ({ item }) => {
                 <IconButton variant="outlined" color="neutral" sx={{ mr: 'auto' }}>
                   <FavoriteBorderIcon style={{ color: 'red' }} />
                 </IconButton>
-                <Button size="small" onClick={() => handleIngredientsClick()} >Ingredients</Button>
-                <Button size="small" onClick={() => handleInstructionsClick()}>Instructions</Button>
+                <div className = "findRecipeButtons">
+                <Button style={{backgroundColor: '#a8dadc', color: "#03045e", fontWeight: 'bold', marginRight: '10px'}} variant="contained" size="small" onClick={() => handleIngredientsClick()}>Ingredients</Button>
+                <Button style={{backgroundColor: '#a8dadc',color: "#03045e", fontWeight: 'bold'}}size="small" variant="contained" onClick={() => handleInstructionsClick()}>Instructions</Button>
+
+                </div>
+               
               </CardActions>
             </Card>
       

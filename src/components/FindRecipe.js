@@ -5,11 +5,14 @@ import InputWithIcon from '../FindRecipeComponents/InputWithIcon';
 import RecipeCard from '../FindRecipeComponents/RecipeCard';
 import Grid from '@mui/material/Grid';
 import TableIngredients from '../FindRecipeComponents/TableIngredients';
+import LocalCafeIcon from '@mui/icons-material/LocalCafe';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+
 
 
 const FindRecipe = () => {
 
-  const [selectedFood, setSelectedFood] = useState(null);
+  const [selectedFood, setSelectedFood] = useState("");
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -35,7 +38,16 @@ const FindRecipe = () => {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Meal Information</h1>
+      
+      
+      
+      <h1 style={{ textAlign: 'center' }}>Find a Recipe!
+      <div className='iconsFindRecipe'>
+      <LocalCafeIcon fontSize='medium' /><AcUnitIcon fontSize='medium'/>
+      </div>
+      
+      </h1>
+      
       <MenuBookIcon id="menu-book-icon" />
       <InputWithIcon onFoodChange={setSelectedFood} />
 
