@@ -12,6 +12,8 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import FindRecipe from './components/FindRecipe';
 import WeatherRecipe from './components/WeatherRecipe';
 import InputWithIcon from './FindRecipeComponents/InputWithIcon';
+import RecipeCard from './FindRecipeComponents/RecipeCard';
+
 
 
 
@@ -64,6 +66,7 @@ function App() {
           <Route path="/SavedRecipes" element={<SavedRecipes />} />
         </Routes>
 
+        
 
       
     </Router>
