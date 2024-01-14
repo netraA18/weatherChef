@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import InputWithIcon from '../FindRecipeComponents/InputWithIcon';
 import RecipeCard from '../FindRecipeComponents/RecipeCard';
+import Grid from '@mui/material/Grid';
 
 
 const FindRecipe = () => {
@@ -39,10 +40,15 @@ const FindRecipe = () => {
       <h1 style={{ textAlign: 'center' }}>Meal Information</h1>
       <MenuBookIcon id="menu-book-icon" />
       <InputWithIcon onFoodChange={setSelectedFood} />
+      
       <div className='dataDisplay'>
+        <Grid container rowSpacing={2} columnSpacing={2}>
         {items.map((item, index) => (
           <RecipeCard key={item.idMeal} item={item} />
         ))}
+
+        </Grid>
+        
       </div>
     </div>
   );
