@@ -19,16 +19,23 @@ body {
  
 }
 
-#inputFood {
+#inputFood, #cityName, #countryName{
   border-bottom: 3px solid rgb(255, 255, 255) !important;
   color: rgb(0, 208, 255);
   font-size: large;
   font-weight: 400;
 }
 
-#my-title-food {
+#my-title-food, #my-city-name{
   font-size: medium;
   color: rgb(255, 177, 190);
+  font-weight: bold;
+  font-size: small;
+}
+
+#my-country-name {
+  color: rgb(255, 177, 190);
+  position: relative;
   font-weight: bold;
   font-size: small;
 }

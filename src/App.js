@@ -6,13 +6,13 @@ import NavBar from './components/NavBar';
 import MovieDetails from './components/FindRecipe';
 import MovieList from './components/SavedRecipes';
 import SavedRecipes from './components/SavedRecipes';
-import foodImg from './foodImg.avif';
 import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import FindRecipe from './components/FindRecipe';
 import WeatherRecipe from './components/WeatherRecipe';
 import InputWithIcon from './FindRecipeComponents/InputWithIcon';
 import RecipeCard from './FindRecipeComponents/RecipeCard';
+import Instructions from './components/Instructions';
 
 
 
@@ -50,6 +50,9 @@ function App() {
           <Link to="/SavedRecipes" className="item">
           <strong>Saved Recipes</strong>
           </Link>
+          <Link to="/Instructions" className="item">
+          <strong>Instructions</strong>
+          </Link>
           
           
           <div className="right menu">
@@ -64,6 +67,9 @@ function App() {
           <Route path="/FindRecipe" element={<FindRecipe />} />
           <Route path="/WeatherRecipe" element={<WeatherRecipe />} />
           <Route path="/SavedRecipes" element={<SavedRecipes />} />
+          <Route path="/instructions/:id" element={<Instructions />} />
+
+          {/* <Route path="/Instructions" element={<Instructions />} /> */}
         </Routes>
 
         

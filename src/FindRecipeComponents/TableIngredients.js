@@ -12,14 +12,14 @@ import Paper from '@mui/material/Paper';
 
 const TableIngredients = ( {item}) => {
 
-  const splitInstructions = (instructions) => {
-    const sentences = instructions.split(".");
-    const newArray = sentences.flat();
+  // const splitInstructions = (instructions) => {
+  //   const sentences = instructions.split(".");
+  //   const newArray = sentences.flat();
 
-    return newArray.map((sentence, index) => (
-      <p key={index}>{sentence}</p>
-    ));
-  };
+  //   return newArray.map((sentence, index) => (
+  //     <p key={index}>{sentence}</p>
+  //   ));
+  // };
 
   const displayRecipeParts = (item, { partName }) => {
     const partInfo = [];
