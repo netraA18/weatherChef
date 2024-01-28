@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import TableIngredients from '../FindRecipeComponents/TableIngredients';
 
 const Instructions = () => {
   const { id } = useParams();
@@ -28,10 +29,13 @@ const Instructions = () => {
 
   return (
     <div>
-      {instructions.map((sentence, index) => {
+      {instructions.map((sentence, index) => (
+        <ul>
+          <><li style={{ color: 'white', fontSize: '15px'}} key={index}>{sentence}</li><br /></>
+        </ul>
         
-        return <li key={index}>{sentence}</li>;
-      })}
+      ))}
+      
     </div>
   );
 };

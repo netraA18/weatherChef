@@ -5,21 +5,53 @@ body {
   color: yellow;
 }
 
+/* .temperatureInformation {
+  margin-left: 50px;
+  margin-top: 50px;
+} */
+
+/* Add these styles to your CSS file */
+#weatherTitle {
+  font-size: 2em;
+  color: #ff7e7e; /* You can customize the color */
+  margin-bottom: 200px; /* Add margin-bottom to create space below the title */
+   /* Add this line to set top margin to 0 */
+  text-align: center;
+  margin-top: -150px;
+
+}
+
+.temperatureInformation {
+  margin-top: 20px;
+}
+
+.temperatureInformation p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+/* You can add more styles based on your design preferences */
+
+
 .input-container {
   display: flex;
   align-items: center;
   margin-left: 100px;
 }
 
+.inputContainer {
+  align-items: center;
+  margin-left: 30px;
+  margin-top: 100px;
+  display: flex;
+}
 .dataDisplay {
  
  margin-top: 100px;
  margin-left: 30px;
- 
- 
 }
 
-#inputFood, #cityName, #countryName{
+#inputFood, #cityName{
   border-bottom: 3px solid rgb(255, 255, 255) !important;
   color: rgb(0, 208, 255);
   font-size: large;
@@ -33,12 +65,7 @@ body {
   font-size: small;
 }
 
-#my-country-name {
-  color: rgb(255, 177, 190);
-  position: relative;
-  font-weight: bold;
-  font-size: small;
-}
+
 
 #menu-book-icon {
   color: rgb(255, 150, 110);

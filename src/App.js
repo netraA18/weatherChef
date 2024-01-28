@@ -50,9 +50,9 @@ function App() {
           <Link to="/SavedRecipes" className="item">
           <strong>Saved Recipes</strong>
           </Link>
-          <Link to="/Instructions" className="item">
+          {/* <Link to="/Instructions" className="item">
           <strong>Instructions</strong>
-          </Link>
+          </Link> */}
           
           
           <div className="right menu">

@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import ReactCardFlip from 'react-card-flip';
 import TableIngredients from './TableIngredients';
 import { Link } from 'react-router-dom';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const RecipeCard = ({ item }) => {
   const [flip, setFlip] = useState(false);
@@ -55,9 +56,9 @@ const RecipeCard = ({ item }) => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <IconButton variant='outlined' color='neutral' sx={{ mr: 'auto' }}>
-              {/* Favorite button */}
-            </IconButton>
+              <IconButton variant="outlined" color="neutral" sx={{ mr: 'auto' }}>
+                  <FavoriteBorderIcon style={{ color: 'red' }} />
+              </IconButton>
             <div className='findRecipeButtons'>
               <Button
                 style={{
@@ -92,12 +93,12 @@ const RecipeCard = ({ item }) => {
               <Typography variant='body2' color='text.primary'>
                 {showIngredients && <TableIngredients item={item} />}
                 {showInstructions && (
-                  <Link to={`/instructions/${item.idMeal}`}>Click here for detailed Instructions</Link>
+                  <Link style={{ color: 'purple', fontSize: '17px'}} to={`/instructions/${item.idMeal}`}>Click here for detailed Instructions</Link>
                 )}
               </Typography>
             </CardContent>
           </CardActionArea>
-          <CardActions>{/* Additional actions if needed */}</CardActions>
+          <CardActions></CardActions>
         </Card>
       </ReactCardFlip>
     </Grid>
