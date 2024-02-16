@@ -21,10 +21,6 @@ const InputWeather = ( {updateCityName, updateCountryName} ) => {
     setCity(value);
   }
 
-  // const handleCityChange = () => {
-  //   updateCityName(city);
-  // }
-
   const handleCountryInputChange = (event) => {
     
     const { value } = event.target;
@@ -32,7 +28,7 @@ const InputWeather = ( {updateCityName, updateCountryName} ) => {
     setCountry(value);
   }
 
-  const handleCountryChange = () => {
+  const handleNameChange = () => {
     updateCountryName(country);
     updateCityName(city)
   }
@@ -61,7 +57,7 @@ const InputWeather = ( {updateCityName, updateCountryName} ) => {
        
       </FormControl>
       <Stack spacing={2} direction="row">
-        <Button onClick={handleCountryChange} variant="contained" style={{ backgroundColor: "rgb(210, 150, 110)", color: "maroon", fontWeight: "bold", marginLeft: '12px', marginBottom: '5px' }}>Submit</Button>
+        <Button onClick={handleNameChange} variant="contained" style={{ backgroundColor: "rgb(210, 150, 110)", color: "maroon", fontWeight: "bold", marginLeft: '12px', marginBottom: '5px' }}>Submit</Button>
        
       </Stack>
     </div>

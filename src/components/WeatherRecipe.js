@@ -1,6 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import InputWeather from '../WeatherComponents/InputWeather';
+import WeatherImages from '../WeatherComponents/WeatherImages';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import { Typography } from '@mui/material';
 
 const WeatherRecipe = () => {
   const [selectedCity, setSelectedCity] = useState("");
@@ -12,58 +16,94 @@ const WeatherRecipe = () => {
   
   const KelvinsToFahrenheit = ({temperature}) => {
     var fahrenTemp = (temperature - 273.15) * 1.8 + 32;
-    
-    
-    
     return  (
       <p>{fahrenTemp.toFixed(2)}°F</p>
     );
-    
+ 
   }
+
   useEffect(() => {
-    
     const fetchData = async () => {
       try {
-
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity},${selectedCountry}&appid=${API_KEY}`);
         const parsedData = await response.json();
         setWeatherInfo(parsedData.main || {});
         setWeatherDescription(parsedData.weather || []);
-        
-        
-        
-
+     
       } catch (error) {
         console.error("Error loading data: ", error);
       }
     }
     fetchData();
-  
   }, [selectedCity, selectedCountry]);
 
   
+
   return (
+
+    
     
     <div>
       <InputWeather updateCountryName = {setSelectedCountry} updateCityName = {setSelectedCity} />
-
+      
       <h1 id="weatherTitle"> Weather Based Recipe</h1>
       
       <div className='temperatureInformation'>
       <p>Temperature: <KelvinsToFahrenheit temperature = {weatherInfo.temp} /></p>
       <p>Minimum Temperature: <KelvinsToFahrenheit temperature = {weatherInfo.temp_min} /></p>
       <p>Maxiumum Temperature: <KelvinsToFahrenheit temperature = {weatherInfo.temp_max} /></p>
+      
 
       </div>
      
-      
-      
       {weatherDescription.map((weatherDetails) => (
-        <div> 
+        <div className='temperatureInformation'> 
           <p>Overall: {weatherDetails.main}</p>
           <p>Description: {weatherDetails.description}</p>
+      
+          <WeatherImages iconOverall={weatherDetails.main}/>
         </div>
       ))}
+
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          '& > :not(style)': {
+            m: 1,
+            width: 250,
+            height: 250,
+           
+          },
+        }}
+      >
+        <Paper id = "paperID" elevation={0}>
+          <div>
+          <strong>Temperature: </strong> <KelvinsToFahrenheit temperature = {weatherInfo.temp} /> 
+          <strong>Min Temperature: </strong> <KelvinsToFahrenheit temperature = {weatherInfo.temp_min} /> 
+          <strong>Max Temperature: </strong> <KelvinsToFahrenheit temperature = {weatherInfo.temp_max} /> 
+          {weatherDescription.map((weatherDetails) => (
+            <div>
+              <strong>Overall: </strong> {weatherDetails.main} <br /> <br />
+              
+              <strong>Description: </strong> {weatherDetails.description}
+              
+            </div>
+          
+
+        ))}
+
+          </div>
+        
+        
+        </Paper>
+
+        
+        
+      </Box>
+        
+
+     
     </div>
 
     

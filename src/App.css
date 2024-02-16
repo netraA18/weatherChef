@@ -52,7 +52,7 @@ body {
 }
 
 #inputFood, #cityName, #countryName{
-  border-bottom: 3px solid rgb(255, 255, 255) !important;
+  border-bottom: 2px solid rgb(255, 255, 255) !important;
   color: rgb(0, 208, 255);
   font-size: large;
   font-weight: 400;
@@ -158,6 +158,25 @@ body {
   
 }
 
+.temperatureInformation {
+  text-align: center;
+
+
+}
+
+#imageIcon {
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+}
+
+#paperID {
+  color: #a73e6d !important;
+
+}
 
 
 
