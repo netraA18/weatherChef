@@ -10,7 +10,7 @@ import FormHelperText from '@mui/material/FormHelperText';
     
 
 
-const InputWeather = ( {updateCityName} ) => {
+const InputWeather = ( {updateCityName, updateCountryName} ) => {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
 
@@ -21,9 +21,23 @@ const InputWeather = ( {updateCityName} ) => {
     setCity(value);
   }
 
-  const handleCityChange = () => {
-    updateCityName(city);
+  // const handleCityChange = () => {
+  //   updateCityName(city);
+  // }
+
+  const handleCountryInputChange = (event) => {
+    
+    const { value } = event.target;
+   
+    setCountry(value);
   }
+
+  const handleCountryChange = () => {
+    updateCountryName(country);
+    updateCityName(city)
+  }
+
+  
 
   
 
@@ -37,8 +51,17 @@ const InputWeather = ( {updateCityName} ) => {
         <FormHelperText id="my-helper-text">Ex: Alpharetta - case doesn't matter</FormHelperText>
        
       </FormControl>
+    
+
+      <FormControl>
+        <InputLabel htmlFor="cityNameTitle" id="my-country-name">Country name</InputLabel>
+        
+        <Input id="countryName" name="countryItem" aria-describedby='my-country-name' onChange={handleCountryInputChange}/>
+        <FormHelperText id="my-helper-text">Ex: US - case doesn't matter</FormHelperText>
+       
+      </FormControl>
       <Stack spacing={2} direction="row">
-        <Button onClick={handleCityChange} variant="contained" style={{ backgroundColor: "rgb(210, 150, 110)", color: "maroon", fontWeight: "bold", marginLeft: '12px', marginBottom: '5px' }}>Submit</Button>
+        <Button onClick={handleCountryChange} variant="contained" style={{ backgroundColor: "rgb(210, 150, 110)", color: "maroon", fontWeight: "bold", marginLeft: '12px', marginBottom: '5px' }}>Submit</Button>
        
       </Stack>
     </div>

@@ -51,18 +51,20 @@ body {
  margin-left: 30px;
 }
 
-#inputFood, #cityName{
+#inputFood, #cityName, #countryName{
   border-bottom: 3px solid rgb(255, 255, 255) !important;
   color: rgb(0, 208, 255);
   font-size: large;
   font-weight: 400;
+  margin-left: 20px;
 }
 
-#my-title-food, #my-city-name{
+#my-title-food, #my-city-name, #my-country-name{
   font-size: medium;
   color: rgb(255, 177, 190);
   font-weight: bold;
   font-size: small;
+  
 }
 
 

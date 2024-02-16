@@ -4,6 +4,7 @@ import InputWeather from '../WeatherComponents/InputWeather';
 
 const WeatherRecipe = () => {
   const [selectedCity, setSelectedCity] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("");
   
   const [weatherInfo, setWeatherInfo] = useState({});
   const [weatherDescription, setWeatherDescription] = useState([]);
@@ -24,7 +25,7 @@ const WeatherRecipe = () => {
     const fetchData = async () => {
       try {
 
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${API_KEY}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity},${selectedCountry}&appid=${API_KEY}`);
         const parsedData = await response.json();
         setWeatherInfo(parsedData.main || {});
         setWeatherDescription(parsedData.weather || []);
@@ -38,13 +39,13 @@ const WeatherRecipe = () => {
     }
     fetchData();
   
-  }, [selectedCity]);
+  }, [selectedCity, selectedCountry]);
 
   
   return (
     
     <div>
-      <InputWeather updateCityName = {setSelectedCity}/>
+      <InputWeather updateCountryName = {setSelectedCountry} updateCityName = {setSelectedCity} />
 
       <h1 id="weatherTitle"> Weather Based Recipe</h1>
       
