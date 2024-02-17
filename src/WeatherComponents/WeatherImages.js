@@ -19,7 +19,9 @@ const WeatherImages = ({iconOverall}) => {
         "Snow": { day: icon13d},
         "Mist": {day: icon50d},
         "Smoke": {day: icon50d},
-        "Fog": {day: icon50d}
+        "Fog": {day: icon50d},
+        "Haze": {day: icon50d},
+        "Dust": {day: icon50d}
        
        
       };
@@ -27,10 +29,9 @@ const WeatherImages = ({iconOverall}) => {
       const iconFileName = weatherIcons[iconOverall].day;
 
   return (
-    <div>
-       
-       
+    <div> 
         {iconFileName && <img id = "imageIcon" src={iconFileName} alt="icon" />}
+        
     </div>
   )
 }

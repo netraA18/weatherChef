@@ -4,7 +4,7 @@ import InputWeather from '../WeatherComponents/InputWeather';
 import WeatherImages from '../WeatherComponents/WeatherImages';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { Typography } from '@mui/material';
+
 
 const WeatherRecipe = () => {
   const [selectedCity, setSelectedCity] = useState("");
@@ -39,75 +39,74 @@ const WeatherRecipe = () => {
 
   
 
-  return (
-
-    
-    
+  return (   
     <div>
       <InputWeather updateCountryName = {setSelectedCountry} updateCityName = {setSelectedCity} />
-      
       <h1 id="weatherTitle"> Weather Based Recipe</h1>
       
-      <div className='temperatureInformation'>
-      <p>Temperature: <KelvinsToFahrenheit temperature = {weatherInfo.temp} /></p>
-      <p>Minimum Temperature: <KelvinsToFahrenheit temperature = {weatherInfo.temp_min} /></p>
-      <p>Maxiumum Temperature: <KelvinsToFahrenheit temperature = {weatherInfo.temp_max} /></p>
-      
-
-      </div>
      
-      {weatherDescription.map((weatherDetails) => (
-        <div className='temperatureInformation'> 
-          <p>Overall: {weatherDetails.main}</p>
-          <p>Description: {weatherDetails.description}</p>
       
-          <WeatherImages iconOverall={weatherDetails.main}/>
-        </div>
-      ))}
 
-      <Box
+      <Box id = "box"
         sx={{
           display: 'flex',
           flexWrap: 'wrap',
+          justifyContent: 'center',
           '& > :not(style)': {
             m: 1,
             width: 250,
-            height: 250,
+            height: 270,
            
           },
         }}
       >
-        <Paper id = "paperID" elevation={0}>
-          <div>
-          <strong>Temperature: </strong> <KelvinsToFahrenheit temperature = {weatherInfo.temp} /> 
-          <strong>Min Temperature: </strong> <KelvinsToFahrenheit temperature = {weatherInfo.temp_min} /> 
-          <strong>Max Temperature: </strong> <KelvinsToFahrenheit temperature = {weatherInfo.temp_max} /> 
+        <Paper
+        id="paperID"
+        elevation={0}
+        sx={{
+          backgroundColor: '#C2DFD1', 
+          padding: '10px', 
+        }}
+      >
+    
+          <div className='temperatureInfo'>
+          <strong>Temperature: </strong>
+          <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
+            <KelvinsToFahrenheit temperature={weatherInfo.temp} />
+          </span>
+          <br />
+          <strong>Min Temperature: </strong>
+          <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
+            <KelvinsToFahrenheit temperature={weatherInfo.temp_min} />
+          </span>
+          <br />
+          <strong>Max Temperature: </strong>
+          <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
+            <KelvinsToFahrenheit temperature={weatherInfo.temp_max} />
+          </span>
+          <br />
+          
           {weatherDescription.map((weatherDetails) => (
+
             <div>
-              <strong>Overall: </strong> {weatherDetails.main} <br /> <br />
-              
-              <strong>Description: </strong> {weatherDetails.description}
+               <WeatherImages iconOverall={weatherDetails.main}/>
+              <strong>Overall: </strong> 
+              <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
+              {weatherDetails.main} 
+              </span>
+              <br /> <br />
+              <strong>Description: </strong> 
+              <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
+              {weatherDetails.description} 
+              </span>
               
             </div>
-          
 
         ))}
-
-          </div>
-        
-        
-        </Paper>
-
-        
-        
-      </Box>
-        
-
-     
+          </div>       
+        </Paper>  
+      </Box> 
     </div>
-
-    
-   
       
   );
 }

@@ -5,17 +5,11 @@ body {
   color: yellow;
 }
 
-/* .temperatureInformation {
-  margin-left: 50px;
-  margin-top: 50px;
-} */
 
-/* Add these styles to your CSS file */
 #weatherTitle {
   font-size: 2em;
-  color: #ff7e7e; /* You can customize the color */
-  margin-bottom: 200px; /* Add margin-bottom to create space below the title */
-   /* Add this line to set top margin to 0 */
+  color: #ff7e7e; 
+  margin-bottom: 200px; 
   text-align: center;
   margin-top: -150px;
 
@@ -30,7 +24,6 @@ body {
   margin: 10px 0;
 }
 
-/* You can add more styles based on your design preferences */
 
 
 .input-container {
@@ -174,9 +167,18 @@ body {
 }
 
 #paperID {
-  color: #a73e6d !important;
+  color: #953062 !important;
 
 }
+
+#box {
+  text-align: center;
+}
+
+.temperatureInfo {
+  font-size: 15px;
+}
+
 
 
 
