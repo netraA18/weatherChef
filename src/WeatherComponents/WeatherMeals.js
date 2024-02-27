@@ -22,9 +22,7 @@ const WeatherMeals = ({temperatureForMeal}) => {
       useEffect(() => {
         fetchData();
       }, [itemOne]);
-
-
-
+      
     // if (temperatureForMeal >= 60) {
     //     console.log("yes, above 60");
     // } else {
