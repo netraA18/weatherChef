@@ -50,10 +50,10 @@ const InputWeather = ( {updateCityName, updateCountryName} ) => {
     
 
       <FormControl>
-        <InputLabel htmlFor="cityNameTitle" id="my-country-name">Country name</InputLabel>
+        <InputLabel htmlFor="cityNameTitle" id="my-country-name">Country Abbreivation</InputLabel>
         
         <Input id="countryName" name="countryItem" aria-describedby='my-country-name' onChange={handleCountryInputChange}/>
-        <FormHelperText id="my-helper-text">Ex: US - case doesn't matter</FormHelperText>
+        <FormHelperText id="my-helper-text">Ex: US, IN, GR - case doesn't matter</FormHelperText>
        
       </FormControl>
       <Stack spacing={2} direction="row">

@@ -4,19 +4,24 @@ import InputWeather from '../WeatherComponents/InputWeather';
 import WeatherImages from '../WeatherComponents/WeatherImages';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import WeatherMeals from '../WeatherComponents/WeatherMeals';
 
 
 const WeatherRecipe = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
+  const [fahrenTemp, setFahrenTemp] = useState(0.0);
   
   const [weatherInfo, setWeatherInfo] = useState({});
   const [weatherDescription, setWeatherDescription] = useState([]);
   const API_KEY = "feac66e300f95f0f9b2eab48b68c36c1";
   
   const KelvinsToFahrenheit = ({temperature}) => {
-    var fahrenTemp = (temperature - 273.15) * 1.8 + 32;
+    var fahrenTempConversion = (temperature - 273.15) * 1.8 + 32;
+    setFahrenTemp(fahrenTempConversion);
+    
     return  (
+      
       <p>{fahrenTemp.toFixed(2)}°F</p>
     );
  
@@ -35,18 +40,21 @@ const WeatherRecipe = () => {
       }
     }
     fetchData();
+
+      
   }, [selectedCity, selectedCountry]);
 
-  
+  // if (fahrenTemp >= 70 && fahrenTemp <= 90) {
+  //   console.log("Yes");
+  // } else {
+  //   console.log("No");
+  // }
 
   return (   
     <div>
       <InputWeather updateCountryName = {setSelectedCountry} updateCityName = {setSelectedCity} />
       <h1 id="weatherTitle"> Weather Based Recipe</h1>
       
-     
-      
-
       <Box id = "box"
         sx={{
           display: 'flex',
@@ -73,6 +81,7 @@ const WeatherRecipe = () => {
           <strong>Temperature: </strong>
           <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
             <KelvinsToFahrenheit temperature={weatherInfo.temp} />
+            
           </span>
           <br />
           <strong>Min Temperature: </strong>
@@ -106,7 +115,10 @@ const WeatherRecipe = () => {
           </div>       
         </Paper>  
       </Box> 
+      {/* {console.log(fahrenTemp)} */}
+      <WeatherMeals temperatureForMeal={fahrenTemp}/>
     </div>
+    
       
   );
 }
