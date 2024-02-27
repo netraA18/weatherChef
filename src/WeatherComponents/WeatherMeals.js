@@ -5,36 +5,47 @@ import RecipeCard from '../FindRecipeComponents/RecipeCard';
 import WeatherRecipe from '../components/WeatherRecipe';
 
 const WeatherMeals = ({temperatureForMeal}) => {
-    const [itemOne, setItemOne] = useState("Corba");
-    const [itemTwo, setItemTwo] = useState("");
-    const [itemThree, setItemThree] = useState("");
-    const [itemFour, setItemFour] = useState("");
+    
+    const [mealItem, setMealItem] = useState([]);
+    const allItemsSixty = ['Corba', 'Bistek','Blini Pancakes'];
+    const [itemName, setItemName] = useState('');
 
+ 
     const fetchData = async () => {
         try {
-          const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${itemOne}`);
-          const parsedData = await response.json();
-          setItemOne(parsedData.meals || []);
+          // allItems();
+          const promises = allItemsSixty.map(async(itemName) => {
+            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${itemName}`);
+            const parsedData = await response.json();
+            return parsedData.meals || [];  
+          });
+          const mealsData = await Promise.all(promises);
+          const mergedMeals = mealsData.flat();
+          setMealItem(mergedMeals);
+
         } catch (error) {
           console.error("Error loading data: ", error);
         }
       };
       useEffect(() => {
+        
+        
+        
         fetchData();
-      }, [itemOne]);
+        
+        // fetchData();
+      }, []);
       
-    // if (temperatureForMeal >= 60) {
-    //     console.log("yes, above 60");
-    // } else {
-    //     console.log("no, not above 60");
-
-    // }
- 
+   
   return (
     <div>
-      {/* {itemOne.map((item, index) => (
+      
+      
+     {mealItem.map((item, index) => (
             <RecipeCard key={item.idMeal} item={item} />
-          ))} */}
+          ))} 
+          
+      
 
 
     </div>
