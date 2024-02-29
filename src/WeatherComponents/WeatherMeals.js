@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import RecipeCard from '../FindRecipeComponents/RecipeCard';
+import RefreshIcon from '@mui/icons-material/Refresh';
+import { Button } from '@mui/material';
+import Grid from '@mui/material/Grid';
 
 import WeatherRecipe from '../components/WeatherRecipe';
 
@@ -8,19 +11,20 @@ const WeatherMeals = ({temperatureForMeal}) => {
     
     
     const [mealItem, setMealItem] = useState([]);
-    // const allItemsSixty = ['Corba', 'Bistek','Blini Pancakes'];
-    // const [allItemsSixty, setAllItemsSixty] = ([]);
-    var allItemsSixty = [];
-    const [itemName, setItemName] = useState('');
+   
+    var allItemsPerWeather = [];
+    // const [itemName, setItemName] = useState('');
 
     function getRandomInt(max) {
       return Math.floor(Math.random() * max);
     }
 
+   
+
     const fetchData = async () => {
         try {
           // allItems();
-          const promises = allItemsSixty.map(async(itemName) => {
+          const promises = allItemsPerWeather.map(async(itemName) => {
             const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${itemName}`);
             
             const parsedData = await response.json();
@@ -31,7 +35,6 @@ const WeatherMeals = ({temperatureForMeal}) => {
           
           // mealsData.forEach((element) => console.log(element.getRandomInt(element.length)));
           const map1 = mealsData.map((eachElement) => eachElement[getRandomInt(eachElement.length)]);
-          console.log(map1);
           const mergedMeals = map1.flat();
          
           setMealItem(mergedMeals);
@@ -40,39 +43,54 @@ const WeatherMeals = ({temperatureForMeal}) => {
           console.error("Error loading data: ", error);
         }
       };
+
       useEffect(() => {
-        console.log("inside useEffect");
-        if (temperatureForMeal > 50 && temperatureForMeal <= 70) {
-          console.log("yes");
-          allItemsSixty = ['grilled', 'salad', 'chicken', 'sushi'];
-          
+
+        
+
+        
+        
+        if (temperatureForMeal > 55 && temperatureForMeal <= 70) { 
+          allItemsPerWeather = ['grilled', 'salad', 'chicken', 'sushi'];
           fetchData();
-        } else if (temperatureForMeal > 0 && temperatureForMeal < 20 ) {
-          console.log(temperatureForMeal);
-          console.log("inside else if");
-          allItemsSixty = ['sushi'];
-          
+
+        } else if (temperatureForMeal > 0 && temperatureForMeal <= 55) {      
+          allItemsPerWeather= ['soup', 'Hot Chocolate', 'Casserole', 'Dal fry'];
           fetchData();
+
+        } else if (temperatureForMeal > 70 && temperatureForMeal <= 90) {
+          allItemsPerWeather = ['taco', 'sandwich', 'cheese', 'fruit'];
+          fetchData();
+
+        } else if (temperatureForMeal > 90) {
+          allItemsPerWeather = ['yogurt', 'sandwich', 'sledz', 'strawberries'];
+          fetchData();
+
         }
+       
           
    
       }, [temperatureForMeal]);
+
+      const handleRefresh = () => {
+        fetchData();
+      }
+  
       
 
-      // console.log(temperatureForMeal);
-      // if (temperatureForMeal >= 50) {
-      //   console.log("yes");
-      // } else {
-      //   console.log("no");
-      //   }
   return (
     <div>
-      
-      
-     {mealItem.map((item, index) => (
+      <Button variant="contained" id='custom-button' onClick={handleRefresh} >
+        <RefreshIcon /> </Button>
+
+        <div className='dataDisplay'>
+        <Grid container rowSpacing={5} columnSpacing={2}>
+        {mealItem.map((item, index) => (
             <RecipeCard key={item.idMeal} item={item} />
           ))} 
-          
+        </Grid>
+      </div>
+    
       
 
 
