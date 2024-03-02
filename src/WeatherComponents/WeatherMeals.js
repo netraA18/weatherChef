@@ -5,12 +5,12 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-import WeatherRecipe from '../components/WeatherRecipe';
 
 const WeatherMeals = ({temperatureForMeal}) => {
     
     
     const [mealItem, setMealItem] = useState([]);
+    const [buttonClicked, setButtonClicked] = useState(false);
    
     var allItemsPerWeather = [];
     // const [itemName, setItemName] = useState('');
@@ -19,6 +19,19 @@ const WeatherMeals = ({temperatureForMeal}) => {
       return Math.floor(Math.random() * max);
     }
 
+    // var isButtonClicked = false;
+    // const handleRefresh = () => {
+      
+    //   console.log("inside handle refresh, button click status before is: " + isButtonClicked);
+    //   isButtonClicked = !isButtonClicked;
+    //   console.log("inside handle refresh, button click status after is: " + isButtonClicked);
+     
+    // }
+
+    const handleRefreshButton = () => {
+        setButtonClicked(!buttonClicked);
+       
+    }
    
 
     const fetchData = async () => {
@@ -46,15 +59,13 @@ const WeatherMeals = ({temperatureForMeal}) => {
 
       useEffect(() => {
 
-        
-
-        
-        
+        console.log("Inside useEffect");
+    
         if (temperatureForMeal > 55 && temperatureForMeal <= 70) { 
           allItemsPerWeather = ['grilled', 'salad', 'chicken', 'sushi'];
           fetchData();
 
-        } else if (temperatureForMeal > 0 && temperatureForMeal <= 55) {      
+        } else if (temperatureForMeal > 0 && temperatureForMeal <= 55) {    
           allItemsPerWeather= ['soup', 'Hot Chocolate', 'Casserole', 'Dal fry'];
           fetchData();
 
@@ -68,19 +79,17 @@ const WeatherMeals = ({temperatureForMeal}) => {
 
         }
        
-          
+        
    
-      }, [temperatureForMeal]);
+      }, [temperatureForMeal, buttonClicked]);
 
-      const handleRefresh = () => {
-        fetchData();
-      }
+      
   
       
 
   return (
     <div>
-      <Button variant="contained" id='custom-button' onClick={handleRefresh} >
+      <Button variant="contained" id='custom-button' onClick={handleRefreshButton} >
         <RefreshIcon /> </Button>
 
         <div className='dataDisplay'>
