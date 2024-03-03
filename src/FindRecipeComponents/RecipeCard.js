@@ -11,7 +11,7 @@ import TableIngredients from './TableIngredients';
 import { Link } from 'react-router-dom';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-const RecipeCard = ({ item }) => {
+const RecipeCard = ({ item, displayAsColumn }) => {
   const [flip, setFlip] = useState(false);
   const [showIngredients, setShowIngredients] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
@@ -33,7 +33,9 @@ const RecipeCard = ({ item }) => {
   };
 
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3}>
+    
+
+     <Grid item xs={12} sm={6} md={4} lg={3}>
       <ReactCardFlip isFlipped={flip}>
         {/* Front of the card */}
         <Card className='card' sx={{ maxWidth: 300 }}>
@@ -56,9 +58,9 @@ const RecipeCard = ({ item }) => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-              <IconButton variant="outlined" color="neutral" sx={{ mr: 'auto' }}>
-                  <FavoriteBorderIcon style={{ color: 'red' }} />
-              </IconButton>
+            <IconButton variant="outlined" color="neutral" sx={{ mr: 'auto' }}>
+              <FavoriteBorderIcon style={{ color: 'red' }} />
+            </IconButton>
             <div className='findRecipeButtons'>
               <Button
                 style={{
@@ -93,12 +95,11 @@ const RecipeCard = ({ item }) => {
               <Typography variant='body2' color='text.primary'>
                 {showIngredients && <TableIngredients item={item} />}
                 {showInstructions && (
-                  <Link style={{ color: 'purple', fontSize: '17px'}} to={`/instructions/${item.idMeal}`}>Click here for detailed Instructions</Link>
+                  <Link style={{ color: 'purple', fontSize: '17px' }} to={`/instructions/${item.idMeal}`}>Click here for detailed Instructions</Link>
                 )}
               </Typography>
             </CardContent>
           </CardActionArea>
-          <CardActions></CardActions>
         </Card>
       </ReactCardFlip>
     </Grid>
@@ -106,4 +107,3 @@ const RecipeCard = ({ item }) => {
 };
 
 export default RecipeCard;
-

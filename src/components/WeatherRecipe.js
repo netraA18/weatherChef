@@ -7,6 +7,7 @@ import Paper from '@mui/material/Paper';
 import WeatherMeals from '../WeatherComponents/WeatherMeals';
 
 
+
 const WeatherRecipe = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -52,73 +53,80 @@ const WeatherRecipe = () => {
 
   return (   
     <div>
-      <InputWeather updateCountryName = {setSelectedCountry} updateCityName = {setSelectedCity} />
+    <div className="weatherForInput">
+      <InputWeather updateCountryName={setSelectedCountry} updateCityName={setSelectedCity} />
+    </div>
+    <div>
       <h1 id="weatherTitle"> Weather Based Recipe</h1>
-      
-      <Box id = "box"
+    </div>
+   
+    <div className='boxing'>
+      <Box id="box"
         sx={{
           display: 'flex',
           flexWrap: 'wrap',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
+          marginTop: '-200px', // Adjust to position to the left
+          marginBottom: '50px',
+          marginLeft: '150px',
           '& > :not(style)': {
-            m: 1,
-            width: 250,
-            height: 270,
-           
+          m: 1,
+          width: 350,
+          height: 350,
+          
           },
         }}
       >
         <Paper
-        id="paperID"
-        elevation={0}
-        sx={{
-          backgroundColor: '#C2DFD1', 
-          padding: '10px', 
-        }}
-      >
-    
-          <div className='temperatureInfo'>
-          <strong>Temperature: </strong>
-          <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
-            <KelvinsToFahrenheit temperature={weatherInfo.temp} />
+          id="paperID"
+          elevation={0}
+          sx={{
+            backgroundColor: 'rgb(0, 0, 35)',
+            padding: '10px',
+           
             
-          </span>
-          <br />
-          <strong>Min Temperature: </strong>
-          <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
-            <KelvinsToFahrenheit temperature={weatherInfo.temp_min} />
-          </span>
-          <br />
-          <strong>Max Temperature: </strong>
-          <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
-            <KelvinsToFahrenheit temperature={weatherInfo.temp_max} />
-          </span>
-          <br />
-          
-          {weatherDescription.map((weatherDetails) => (
-
-            <div>
-               <WeatherImages iconOverall={weatherDetails.main}/>
-              <strong>Overall: </strong> 
-              <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
-              {weatherDetails.main} 
-              </span>
-              <br /> <br />
-              <strong>Description: </strong> 
-              <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
-              {weatherDetails.description} 
-              </span>
-              
-            </div>
-
-        ))}
-          </div>       
-        </Paper>  
-      </Box> 
-      {/* {console.log(fahrenTemp)} */}
-      <WeatherMeals temperatureForMeal={fahrenTemp}/>
+             
+          }}
+        >
+          <div className='temperatureInfo'>
+            <strong>Temperature: </strong>
+            <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
+              <KelvinsToFahrenheit temperature={weatherInfo.temp} />
+            </span>
+            <br />
+            <strong>Min Temperature: </strong>
+            <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
+              <KelvinsToFahrenheit temperature={weatherInfo.temp_min} />
+            </span>
+            <br />
+            <strong>Max Temperature: </strong>
+            <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
+              <KelvinsToFahrenheit temperature={weatherInfo.temp_max} />
+            </span>
+            <br />
+            {weatherDescription.map((weatherDetails) => (
+              <div key={weatherDetails.id}>
+                <WeatherImages iconOverall={weatherDetails.main} />
+                <strong>Overall: </strong>
+                <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
+                  {weatherDetails.main}
+                </span>
+                <br /> <br />
+                <strong>Description: </strong>
+                <span style={{ color: '#008CFF', fontWeight: 'bold' }}>
+                  {weatherDetails.description}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Paper>
+      </Box>
     </div>
     
+    <div>
+      <WeatherMeals temperatureForMeal={fahrenTemp} />
+    </div>
+  </div>
       
   );
 }
