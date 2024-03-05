@@ -60,7 +60,8 @@ const WeatherRecipe = () => {
       <InputWeather updateCountryName={setSelectedCountry} updateCityName={setSelectedCity} />
     </div>
     <div>
-      <h1 id="weatherTitle"> Weather Based Recipe</h1>
+      <h1 id="weatherTitle"> Weather Based Recipe!</h1>
+     
     </div>
    
     <div className='boxing'>

@@ -33,7 +33,7 @@ const InputWithIcon = ({ onFoodChange }) => {
       <FormControl>
         <InputLabel htmlFor="inputFoodTitle" id="my-title-food">Food Name</InputLabel>
         <Input id="inputFood" name="foodItem" aria-describedby='my-title-food' onChange={handleInputChange} />
-        <FormHelperText id="my-helper-text">Below are sample recipes. Search for your own!</FormHelperText>
+        <FormHelperText id="my-helper-text">Below are sample recipes. Search for your own! You can search for words such as rice, chocolate, soup, etc.</FormHelperText>
       </FormControl>
       <Stack spacing={2} direction="row">
         <Button variant="contained" onClick={handleFoodChange} style={{ backgroundColor: "rgb(210, 150, 110)", color: "maroon", fontWeight: "bold", marginLeft: '12px', marginBottom: '5px' }}>Submit</Button>
