@@ -47,7 +47,7 @@ const FindRecipe = () => {
       <InputWithIcon onFoodChange={setSelectedFood} />
       <div className='dataDisplay'>
         <Grid container rowSpacing={5} columnSpacing={2}>
-          {!loading && items.length == 0 ? (
+          {!loading && items.length === 0 ? (
             <div style={{fontSize: '20px'}}>No recipes found. Search something else!</div>
           ) : (
             items.map((item) => (
