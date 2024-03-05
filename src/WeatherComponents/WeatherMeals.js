@@ -4,6 +4,7 @@ import RecipeCard from '../FindRecipeComponents/RecipeCard';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { useRef } from 'react';
 
 /**
  * WeatherMeals component displays meal recommendations based on temperature.
@@ -15,8 +16,9 @@ const WeatherMeals = ({temperatureForMeal}) => {
     
     const [mealItem, setMealItem] = useState([]);
     const [buttonClicked, setButtonClicked] = useState(false);
+    const allItemsPerWeatherRef = useRef([]);
    
-    var allItemsPerWeather = [];
+    // var allItemsPerWeather = [];
 
 
     function getRandomInt(max) {
@@ -32,7 +34,7 @@ const WeatherMeals = ({temperatureForMeal}) => {
     // Function to fetch meal data based on temperature category
     const fetchData = async () => {
         try {
-          const promises = allItemsPerWeather.map(async(itemName) => {
+          const promises = allItemsPerWeatherRef.current.map(async(itemName) => {
             const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${itemName}`);     
             const parsedData = await response.json();
             return parsedData.meals || [];  
@@ -55,19 +57,19 @@ const WeatherMeals = ({temperatureForMeal}) => {
         console.log("Inside useEffect");
     
         if (temperatureForMeal > 55 && temperatureForMeal <= 70) { 
-          allItemsPerWeather = ['grilled', 'salad', 'chicken', 'sushi'];
+          allItemsPerWeatherRef.current = ['grilled', 'salad', 'chicken', 'sushi'];
           fetchData();
 
         } else if (temperatureForMeal > 0 && temperatureForMeal <= 55) {    
-          allItemsPerWeather= ['soup', 'Hot Chocolate', 'Casserole', 'Dal fry'];
+          allItemsPerWeatherRef.current = ['soup', 'Hot Chocolate', 'Casserole', 'Dal fry'];
           fetchData();
 
         } else if (temperatureForMeal > 70 && temperatureForMeal <= 90) {
-          allItemsPerWeather = ['taco', 'sandwich', 'cheese', 'fruit'];
+          allItemsPerWeatherRef.current = ['taco', 'sandwich', 'cheese', 'fruit'];
           fetchData();
 
         } else if (temperatureForMeal > 90) {
-          allItemsPerWeather = ['yogurt', 'sandwich', 'sledz', 'strawberries'];
+          allItemsPerWeatherRef.current = ['yogurt', 'sandwich', 'sledz', 'strawberries'];
           fetchData();
 
         }

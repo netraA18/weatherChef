@@ -32,7 +32,7 @@ const FindRecipe = () => {
   useEffect(() => {
     fetchData();
    
-  }, [selectedFood]);
+  }, [selectedFood, fetchData]);
 
   return (
     <div>

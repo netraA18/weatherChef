@@ -51,9 +51,9 @@ function App() {
           
           
           <div className="right menu">
-          <a className="ui item">
+          <Link to="/" className="ui item">
             <strong>By Netra Amin</strong>
-          </a>
+          </Link>
           </div>
       </div>
 
