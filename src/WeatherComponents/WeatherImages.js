@@ -8,9 +8,12 @@ import icon13d from './13d@2x.jpeg';
 import icon50d from './50d@3x.png';
 import icon01d from './ClearSky.png';
 
-
-const WeatherImages = ({iconOverall}) => {
-    
+/**
+ * WeatherImages component displays weather icons based on the overall weather condition.
+ * @param {string} iconOverall - Overall weather condition
+ * @returns {JSX.Element} WeatherImages component
+ */
+const WeatherImages = ({iconOverall}) => {  
     const weatherIcons = {
         "Clear": { day: icon01d},
         "Clouds": { day: icon02d},
@@ -23,10 +26,7 @@ const WeatherImages = ({iconOverall}) => {
         "Fog": {day: icon50d},
         "Haze": {day: icon50d},
         "Dust": {day: icon50d}
-       
-       
       };
-
       const iconFileName = weatherIcons[iconOverall].day;
       
 

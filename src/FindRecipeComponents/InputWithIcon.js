@@ -6,16 +6,19 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import FormHelperText from '@mui/material/FormHelperText';
 
-//onFoodChange is passed from parent component to child component to allow update the state
+
+/**
+ * Functional componennt representing an input field with an icon
+ * @param {Function} onFoodChange - Callback function triggered on food change 
+ * @returns {JSX.Element} InputWithIcon component
+ */
 const InputWithIcon = ({ onFoodChange }) => {
   
   const [food, setFood] = useState("");
   
 
   const handleInputChange = (event) => {
-    //extract value property
     const { value } = event.target;
-    //food value is being updated
     setFood(value);
   }
 

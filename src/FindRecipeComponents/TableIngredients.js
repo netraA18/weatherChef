@@ -7,12 +7,19 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-
-
-
+/**
+ * TableIngredients component displays the ingredients and measurements of a recipe in a table format.
+ * @param {Object} item - Object containing recipe information
+ * @returns {JSX.Element} TableIngredients component
+ */
 const TableIngredients = ( {item}) => {
 
-
+  /**
+   * Displays recipe parts (ingredients or measurements) in paragraphs.
+   * @param {Object} item - Object containing recipe information
+   * @param {string} partName - Name of the recipe part (ingredients or measurements)
+   * @returns {JSX.Element} JSX element displaying recipe parts
+   */
   const displayRecipeParts = (item, { partName }) => {
     const partInfo = [];
 
@@ -25,9 +32,6 @@ const TableIngredients = ( {item}) => {
     ));
 };
   return (
-     
-
-    
     <TableContainer component = {Paper}>
       <MuiTable sx = {{minWidth: 50}} aria-label="simple table" id="tableIngredients">
         <TableHead>
@@ -44,11 +48,7 @@ const TableIngredients = ( {item}) => {
             <TableCell align='right'>
             {displayRecipeParts(item, { partName: 'Measure' })}
             </TableCell>
-          
-
-          </TableRow>
-         
-           
+          </TableRow>  
         </TableBody>
       </MuiTable>
     </TableContainer>

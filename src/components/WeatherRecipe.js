@@ -7,8 +7,12 @@ import Paper from '@mui/material/Paper';
 import WeatherMeals from '../WeatherComponents/WeatherMeals';
 
 
-
+/**
+ * WeatherRecipe component displays weather information based on user-selected city and country.
+ * @returns {JSX.Element} WeatherRecipe component
+ */
 const WeatherRecipe = () => {
+  // State variables to manage user-selected city, country, and weather data
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
   const [fahrenTemp, setFahrenTemp] = useState(0.0);
@@ -16,23 +20,27 @@ const WeatherRecipe = () => {
   const [weatherInfo, setWeatherInfo] = useState({});
   const [weatherDescription, setWeatherDescription] = useState([]);
   const API_KEY = "feac66e300f95f0f9b2eab48b68c36c1";
+
   
+
   const KelvinsToFahrenheit = ({temperature}) => {
     var fahrenTempConversion = (temperature - 273.15) * 1.8 + 32;
     setFahrenTemp(fahrenTempConversion);
     
-    return  (
-      
+    return  (  
       <p>{fahrenTemp.toFixed(2)}°F</p>
     );
  
   }
-
+   /**
+   * Fetches weather data based on selected city and country.
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity},${selectedCountry}&appid=${API_KEY}`);
         const parsedData = await response.json();
+         // Update weather information states
         setWeatherInfo(parsedData.main || {});
         setWeatherDescription(parsedData.weather || []);
      
@@ -45,11 +53,6 @@ const WeatherRecipe = () => {
       
   }, [selectedCity, selectedCountry]);
 
-  // if (fahrenTemp >= 70 && fahrenTemp <= 90) {
-  //   console.log("Yes");
-  // } else {
-  //   console.log("No");
-  // }
 
   return (   
     <div>
@@ -66,7 +69,7 @@ const WeatherRecipe = () => {
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'flex-start',
-          marginTop: '-200px', // Adjust to position to the left
+          marginTop: '-200px', 
           marginBottom: '50px',
           marginLeft: '150px',
           '& > :not(style)': {
@@ -83,9 +86,7 @@ const WeatherRecipe = () => {
           sx={{
             backgroundColor: 'rgb(0, 0, 35)',
             padding: '10px',
-           
-            
-             
+    
           }}
         >
           <div className='temperatureInfo'>

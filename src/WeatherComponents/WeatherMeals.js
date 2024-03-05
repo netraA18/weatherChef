@@ -5,7 +5,11 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-
+/**
+ * WeatherMeals component displays meal recommendations based on temperature.
+ * @param {number} temperatureForMeal - Temperature for meal recommendations
+ * @returns {JSX.Element} WeatherMeals component
+ */
 const WeatherMeals = ({temperatureForMeal}) => {
     
     
@@ -25,7 +29,7 @@ const WeatherMeals = ({temperatureForMeal}) => {
        
     }
    
-
+    // Function to fetch meal data based on temperature category
     const fetchData = async () => {
         try {
           const promises = allItemsPerWeather.map(async(itemName) => {
@@ -45,6 +49,7 @@ const WeatherMeals = ({temperatureForMeal}) => {
         }
       };
 
+      // Effect to fetch meal data when temperature or buttonClicked state changes
       useEffect(() => {
 
         console.log("Inside useEffect");
@@ -75,18 +80,17 @@ const WeatherMeals = ({temperatureForMeal}) => {
 
   return (
     <div>
-           <Button variant="contained" id="custom-button" onClick={handleRefreshButton}>
- <RefreshIcon />
-</Button>
-
-            <div className='dataDisplay' style={{ marginTop: '40px' }}>
-                <Grid container rowSpacing={5} columnSpacing={2}>
-                    {mealItem.map((item, index) => (
-                        <RecipeCard key={item.idMeal} item={item} displayAsColumn={true} />
-                    ))}
-                </Grid>
+       <Button variant="contained" id="custom-button" onClick={handleRefreshButton}>
+        <RefreshIcon />
+        </Button>
+        <div className='dataDisplay' style={{ marginTop: '40px' }}>
+          <Grid container rowSpacing={5} columnSpacing={2}>
+            {mealItem.map((item, index) => (
+            <RecipeCard key={item.idMeal} item={item} displayAsColumn={true} />
+            ))}
+            </Grid>
             </div>
-        </div>
+          </div>
   )
 }
 

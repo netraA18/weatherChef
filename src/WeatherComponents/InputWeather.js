@@ -5,33 +5,39 @@ import { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import FormHelperText from '@mui/material/FormHelperText';
-
 import Grid from '@mui/material/Grid';
-
-
-
-
-    
-
-
+  
+/**
+ * InputWeather component renders a form to input city name and country abbreviation for weather data.
+ * @param {Function} updateCityName - Function to update the city name state in the parent component
+ * @param {Function} updateCountryName - Function to update the country abbreviation state in the parent component
+ * @returns {JSX.Element} InputWeather component
+ */
 const InputWeather = ( {updateCityName, updateCountryName} ) => {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
 
+  /**
+   * Handles input change for city name.
+   * @param {Object} event - The input change event object
+   */
   const handleInputChange = (event) => {
-    
     const { value } = event.target;
-   
     setCity(value);
   }
 
+  /**
+   * Handles input change for country abbreviation.
+   * @param {Object} event - The input change event object
+   */
   const handleCountryInputChange = (event) => {
-    
     const { value } = event.target;
-   
     setCountry(value);
   }
 
+  /**
+   * Handles form submission to update city and country states in the parent component.
+   */
   const handleNameChange = () => {
     updateCountryName(country);
     updateCityName(city)

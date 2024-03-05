@@ -11,11 +11,20 @@ import TableIngredients from './TableIngredients';
 import { Link } from 'react-router-dom';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-const RecipeCard = ({ item, displayAsColumn }) => {
+/**
+ * Functional component representing a recipe card.
+ * @param {Object} item - the recipe item containing information 
+ * @returns {JSX.Element} RecipeCard component
+ */
+const RecipeCard = ({ item }) => {
   const [flip, setFlip] = useState(false);
   const [showIngredients, setShowIngredients] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
 
+
+  /**
+   * To handle clicking on the ingredients button
+   */
   const handleIngredientsClick = () => {
     if (showInstructions === true) {
       setShowInstructions(false);
@@ -24,6 +33,9 @@ const RecipeCard = ({ item, displayAsColumn }) => {
     setShowIngredients(true);
   };
 
+  /**
+   * To handle clicking on the instructions button
+   */
   const handleClickInstructions = () => {
     if (showIngredients === true) {
       setShowIngredients(false);
@@ -38,7 +50,7 @@ const RecipeCard = ({ item, displayAsColumn }) => {
      <Grid item xs={12} sm={6} md={4} lg={3}>
       <ReactCardFlip isFlipped={flip}>
         {/* Front of the card */}
-        <Card className='card' sx={{ maxWidth: 300 }}>
+        <Card className='card' style={{ boxShadow: '5px 4px 10px rgb(15, 150, 250)' }} sx={{ maxWidth: 300 }}>
           <CardActionArea>
             <CardMedia component='img' height='200' image={item.strMealThumb} />
             <CardContent style={{ height: '155px' }}>
