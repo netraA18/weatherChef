@@ -4,5 +4,5 @@ WeatherChef serves to integrate recipe search and weather-based recipe recommend
 but can also input their current location to receive weather information with amazing recipes!
 
 ## Link
-Link: https://weather-chef.vercel.app/
+https://weather-chef.vercel.app/
  
